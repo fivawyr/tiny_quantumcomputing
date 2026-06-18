@@ -1,0 +1,7 @@
+## Einführung in das QuantumComputing (QC) - Notizen
+### Einstiegszitat
+> "Wir sind ungefähr da, wo klassicsche Computer in den 1950ern waren, die Theorie existiert, die Hardware steckt noch in den Kinderschuhen. Das volle Potential (z.B. Short Algorithmus zu knacken von Verschlüsselungen) braucht millionen-fehlerkorrigierten Qubits" ­~ Claude 
+- Differenzierung der bekannten Begriffe: Quantenphysik ist die Oberkategorie und schließt Quantenmechanik/-computing mit ein. Wobei die Quantenmechanik die mathematische Grundlage ist. Sie beweist und beschreibt wie Materie auf atomarer Ebene funktioniert und gibt uns mithilfe der komplexen Zahlen jede Begründung die für die Anwendung des Quantencomputings verwendet wird. Das Quantencomputing ist dabei die reine-/Ingenieurswissenschaft, welche Quantenmechanik Phänomene (Superposition, Inferenz etc.) Rechengrundlage verwendet. Die größte Überlappung mit meinem Interessensgebiet + Forschungs Relevantheit liegt im `Quantum Chaos`. Es beschreibt das Verhalten von klassischen Pendant chaotisch ist. 
+### Quantenbits
+- rekursive Operatoren wie Fibonacci oder Fakultät sind mathematische Konzepte, bei welchen unseren heutigen Computer an ihre Grenzen stoßen &rarr; exponentielles Wachstum
+- Würde man bspw. ein ganz einfaches Problem wie die Sitz
