@@ -25,3 +25,33 @@ $$
 ### Mathematische Grundlage
 - Vektor Operationen sollte klar sein, wird hier übersprungen
 - $\Re$ und $\Im$: Bei einer komplexen Zahl $z = a + bi$ ist $\Re(z) = a$ der *Realanteil* (messbare Amplitude, Wahrscheinlichkeit) und $\Im(z) = b$ der *Imaginäranteil* (Phase, steuert Interferenz). Im QC gilt: $\|a\|^2 = \Re(a)^2 + \Im(a)^2$ gibt die Messwahrscheinlichkeit, während das Verhältnis von $\Re/\Im$ die Phase bestimmt, die konstruktive oder destruktive Interferenz erzeugt
+#### Komplexe Zahlen
+- sind imaginäre Zahlen, welche als reale Zahlen geschrieben werden und mit der imaginären Einheit `i` multipliert 
+- $i^2 = -1$ dient als Ausgangslage, da dieser Zustand mit reelen Zahlen nicht erreichbar ist
+- Komplexe Zahlen beeinhalten somit eine reele Zahl und eine imaginäre Komponenente §z = a + bi§
+- $\theta$ ist der `phase angle` $\angle$ und beschreibt den Winkel eines Vectors  
+![Hier kommt das Bild vom Winkel rein]()
+- wir haben somit zwei unterschiedliche Arten einer komplexen Zahl in einem 2-Dimensionalen Koordinatensystem dazustellen: 
+$z = a + bi = re^{i\theta}$ &rarr; wichtig ist hier zu sagen, dass $a$, $b$ und $re$ und $\theta$ nicht äquivalent sind
+#### Eulers Form 
+- um die Verbindung von den beiden Formaten dazustellen, brauchen wir die eulische Formel:
+$$
+e^{i\theta} = cos(\theta) + i \cdot sin(\theta)
+$$
+&rarr; mit der magnitude $r$ multiplizieren
+$$
+re^{i\theta} = r(cos(\theta) + i \cdot sin(\theta) = rcos(\theta) + ri\cdot sin(\theta))
+$$
+&rarr; hier ist $rcos(\theta)$ die "reele Komponente" und $ri\cdot sin(\theta$ die "imaginäre 
+#### Absolute Values einer komplexen Zahl 
+- Distanz von dem Ursprungspunkt, einfach den Betrag der Polar Form nehmen:
+$$
+z = re^{i\theta} = \|z\| = r
+$$
+- um einen Vektor zu transposen, wird folgende Notation verwendet:
+- "Transpose a vector and conjugate each of its elements"
+- "the conjugate transpose of a vector `a` will be denoted as $a^\dag$
+$$
+a^\dag = (a^\ast)^T = (a^T)^\ast
+a = \begin{bmatrix}2i \cr 13 \cr 6 - i\end{bmatrix} \rarr a^\dag = \begin{bmatrix} -2i & 13 & 6 + i\end{bmatrix}
+$$
