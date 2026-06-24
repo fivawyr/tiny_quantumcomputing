@@ -55,3 +55,11 @@ $$
 a^\dag = (a^\ast)^T = (a^T)^\ast
 a = \begin{bmatrix}2i \cr 13 \cr 6 - i\end{bmatrix} \rarr a^\dag = \begin{bmatrix} -2i & 13 & 6 + i\end{bmatrix}
 $$
+#### Conjugate Transpose ($\dag$, "Dagger")
+- zwei Operationen in einem: Transponieren (Spaltenvektor &rarr; Zeilenvektor) + Konjugieren (jedes $i$ wird zu $-i$)
+- Notation: $a^\dag = (a^*)^T = (a^T)^*$ (&rarr; die Reihenfolge in welcher wir Transponieren $A^T$ ist egal für das konjugierte transponieren)
+$$
+A = \begin{bmatrix} a & b \cr c & d\end{bmatrix} \rarr A^T = \begin{bmatrix} a & c \cr b & d\end{bmatrix} \rarr A^\dag = \begin{bmatrix} a^* & b^* \cr b^* & d^*\end{bmatrix}
+$$
+- im QC: $\|\psi\rangle$ (Ket) ist der Spaltenvektor, $\langle\psi\| = \|\psi\rangle^\dag$ (Bra) ist der Zellenvektor &rarr; `Bra-Ket-Notation`
+- 
