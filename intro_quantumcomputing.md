@@ -62,4 +62,64 @@ $$
 A = \begin{bmatrix} a & b \cr c & d\end{bmatrix} \rarr A^T = \begin{bmatrix} a & c \cr b & d\end{bmatrix} \rarr A^\dag = \begin{bmatrix} a^* & b^* \cr b^* & d^*\end{bmatrix}
 $$
 - im QC: $\|\psi\rangle$ (Ket) ist der Spaltenvektor, $\langle\psi\| = \|\psi\rangle^\dag$ (Bra) ist der Zellenvektor &rarr; `Bra-Ket-Notation`
-- 
+- Wahrscheinlichkeit: $\langle\psi\|\psi\rangle = \|\alpha\|^2 + \|\beta\|^2 = 1$
+- Quantengatter $U$ müssen $U^\dag U = I$ erfüllen (unitär) &rarr; sichert die Nomierung des Zustandes
+#### Hermitische Matrix 
+- eine Matrix hermitisch wenn $ H = H^\dag$ (gleich ihrem eigener Conjugate Transpose) ist
+- hermitische Matrizen haben immer reele Eigentwerte &rarr; Messergebnisse im QC sind immer reele Zahlen, daher müssen sie Observablen hermitisch sein
+#### Computational Basis State
+$$
+\|0\rangle = \begin{bmatrix} 1 \cr 1 \end{bmatrix} 
+$$
+$$
+\|1\rangle = \begin{bmatrix} 0 \cr 1 \end{bmatrix}
+$$ 
+- Wenn wir die Wahrscheinlichkeit $\psi$, ob wir 1 oder 0 bekommen, können wir anhand des 2 Dimensionalen Vektors sehen, wie hoch die Wahrscheinlichkeit hierfür ist 
+- $\langle \psi \|$ ist die konjugierte-transporter Vektor von $\|\psi \rangle = \begin{bmatrix} \alpha \cr \beta \end{bmatrix} \rarr \langle\psi\| = \|\psi\rangle^\dag = \begin{bmatrix} \alpha^* & \beta^* \end{bmatrix}$ 
+![Visualisation Graph 2D]()
+- Die **globale Phase** ist einfach eine mathematische Darstellung  die wir brauchen, um Quatum States dazustellen. Wir können diese nicht beobachten (&rarr; in einer Sphäre darstellen), wodurch wir diese einfach ignorieren. Sie existiert einfach und wird nicht weiter bearneitet/verwendet
+- Die **relative Phase* beeinflusst die Herleitung und die gezeigte Darstellung der Sphäre im Notebook, somit ghee ich nicht weiter drauf ein. Die **relative Phase** ist die Differenz von zwei Phasenvektor unserer zwei Amplituden
+- Wir Formen die klassische Schreibweise $\|\psi \rangle = \alpha\|0\rangle + \beta\|1\rangle$ in die polare Form ($re^{i\theta}$) &rarr; ich überspringe hier einmal die Umformung (ist eigentlich nur ne klassische $* -(e{i\theta}$) Umformung) 
+$$
+\|\psi\rangle = r_\alpha\|0\rangle + r_\beta^{i\Phi}1\rangle 
+$$
+> Hintergrund: $\Phi$ ist einfach eine Zusammenfassung von $\theta_\beta - \theta_\alpha = \Phi$, somit ist die Differenz $\Delta$ und ist hier die **relative Phase!**
+- Wir haben somit 3 reale (reele & imaginär) Variablen, welche wir sehr gut im 3 dimensionalen Raum darstellen könenn 
+#### Multiple Qubits
+- the first position by the first bit is on the right $\|01\rangle$, in this case the `1`. The basis state are:
+$$
+\|00\rangle = \begin{bmatrix} 1 \cr 0 \cr 0 \cr 0\end{bmatrix}
+$$
+$$
+\|01\rangle = \begin{bmatrix} 0 \cr 1 \cr 0 \cr 0\end{bmatrix}
+$$
+$$
+\|10\rangle = \begin{bmatrix} 0 \cr 0 \cr 1 \cr 0\end{bmatrix}
+$$
+$$
+\|11\rangle = \begin{bmatrix} 0 \cr 0 \cr 0 \cr 1\end{bmatrix}
+$$
+#### Applied multiple qubits - Superposition of two qubits
+$$
+\|\psi\rangle = a\|00\rangle + b\|01\rangle + c\|10\rangle + d\|11\rangle = \begin{bmatrix} a\cr b \cr c \cr d\end{bmatrix}
+$$
+- A uniform superposition is a superposition, where all outcomes have the exact same output chance
+- ein bytes kann $2^8$ states besitzen (size of `int`, 256 mögliche Kombinationen) beschreiben, wodurch wir nur einen `int` brauchen. Durch die Superposition erhalten wir neben den "normalen" bit Kombinationen 256 komplexe Zahlen (a,b,c..)
+$$
+c\|00000000\rangle + b\|00000001\rangle + c\|00000010\rangle..
+$$
+- durch das hinzufügen der komplexen Zahlen müssen wir zusätzliche Informationen abdecken, die ein einzelner `int` nicht abdecken kann. Für ein byte bräuchte man 512 `floats`. Das Problem ist aber, dass es ein exponentienelles Wachstum gibt, wodurch man bei 32 bits (4 bytes) man knapp 8.6 Millionen floats braucht (~34gb)
+#### Quanten Algorithmus
+- um die unterschiedlichen Prozesse zu visualisieren, wird ein `Quantum Circuit Model` verwendet
+![Quantum Circuit]()
+- in dem Fall die 3 klassischen Bits (`meas`) werden nur dafür genutzt, die Ergebnisse zu speichern. Daher ist diese als Measuring Line dargestellt. Die Zeit vergeht von links nach rechts und am Ende werden die Measurement Elemente (die "Tach" Symbole) verwendet, um die Values aus den Qubits auszuwerten
+- eine unitäre Matrix, wenn wir diese mit ihrem Conjugate Transpose multiplizieren wollen ($U^\dag * U$) erhalten wir die Identitätsmatrix ($\begin{bmatrix} 
+1 & 0 & 0 & 0 \cr
+0 & 1 & 0 & 0 \cr
+0 & 0 & 1 & 0 \cr 
+0 & 0 & 0 & 1
+\end{bmatrix}$), wodurch wir $U^\dag U = UU^\dag$ erhalten. Das bedeutet, dass wenn wir eine unitäre Matrx $U$ mit $\psi$ multiplizieren, ist die Magnitude aus der Multiplitkaion äquivalent zu der Magnitude von $\psi$:
+$$
+\|U|\psi\rangle\| = \||\psi\rangle\|
+$$
+#### Gate logic differences
