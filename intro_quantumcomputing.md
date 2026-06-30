@@ -122,4 +122,60 @@ $$
 $$
 \|U|\psi\rangle\| = \||\psi\rangle\|
 $$
-#### Gate logic differences
+### Gate logic differences
+- Quantum logic gates sind `reversable`, bedeutet man kann eine inverse Operation auf das Qubit durchführen und erhält den ursprünglichen Zustand, bevor das Qubit durch das Gate ging 
+####  Pauli Gates 
+- alle drei Pauli Gates operieren auf einem einzelnen Qubit und rotieren auf $\pi$ um die major Achsen auf der Bloch Sphäre der drei Achsen X, Y, Z und werden als $\sigma$ beschrieben
+$$
+X = \sigma_x = \begin{bmatrix} 0 & 1 \cr 1 & 0 \end{bmatrix} \qquad
+Y = \sigma_y = \begin{bmatrix} 0 & -i \cr i & 0 \end{bmatrix} \qquad
+Z = \sigma_z \begin{bmatrix} 1 & 0 \cr 0 & -1 \end{bmatrix} \qquad
+$$
+#### Pauli X Gate (NOT)
+- Single Qubit Gate welches $\|0\rangle$ und $\|1\rangle$, somit ist es einfach `NOT` &rarr; wird als Crosshair dargestellt 
+- als Hilfestellung kann man sich vorstellen, dass die Bloch Sphäre um 180° gedreht wird (bzw. der Punkt der auf der Sphäre liegt). Dadurch dass es immer 180° sind, springen wir immer von 0 auf 1 und andersherum. Beispiel:
+$$
+\|\psi\rangle = a\|0\rangle + \beta\|1\rangle 
+$$
+$\qquad \qquad \qquad \qquad \qquad \qquad$ &darr; 
+$$
+X \|\psi\rangle = a\|1\rangle + \beta \|0\rangle
+$$
+- da wir nicht immer einen festen Winkel von $\theta = \pi$ haben, verwenden wir neben dem Pauli Gates auch `Rotation Gates`. Diese verwenden einen beliebigen Winkel und können kontinuierlich rotiert werden (keine Flip Operationen wie bei Pauli)
+$$
+\begin{bmatrix} cos(\frac{\theta}{2}) & - \iota sin(\frac{\theta}{2}) \cr
+                -\iota sin(\frac{\theta}{2} & cos(\frac{\theta}{2})
+\end{bmatrix}
+$$
+#### Pauli Y Gate
+- Rotiert auf $\pi$ um die Y-Achse auf der Bloch Sphäre, es wird im Vergleich zum X Gate, werden zum einen die Qubits geflipped, zum Anderen wird der 'face'-Faktor auf `i` hinzugefügt 
+$$
+Y\|\psi\rangle = \begin{bmatrix} 0 & -i \cr i & 0\end{bmatrix} * 
+\begin{bmatrix} \alpha \cr \beta\end{bmatrix} = 
+\begin{bmatrix} -i \beta \cr ia\end{bmatrix} = 
+ i * \begin{bmatrix} - \beta \cr \alpha \end{bmatrix} = 
+ i(\alpha\|1\rangle - \beta\|0\rangle)
+$$ 
+- Für Pauli Y entspricht das `Rotations Gate`:
+$$
+\begin{bmatrix} cos(\frac{\theta}{2}) & -sin(\frac{\theta}{2}) \cr
+                sin(\frac{\theta}{2} & cos(\frac{\theta}{2})
+\end{bmatrix}
+$$
+
+#### Pauli Z Gate
+- Rotiert auf $\pi$ um die Z-Achse auf der Bloch Sphäre, es wird im Vergleich zu X Gate, werden zum einen die Qubits geflipped, des Weiteren wird der 'face'-Faktor auf `i` hinzugefügt 
+$$
+Y\|\psi\rangle = \begin{bmatrix} 1 & 0 \cr 0 & -1 \end{bmatrix} * 
+\begin{bmatrix} \alpha \cr \beta\end{bmatrix} = 
+\begin{bmatrix} \alpha \cr -\beta\end{bmatrix} = 
+ \alpha\|0\rangle - \beta\|1\rangle
+$$ 
+- Für Pauli Y entspricht das `Rotations Gate`:
+$$
+\begin{bmatrix} cos({e^{-\iota \frac{\theta}{2}}}) & 0 \cr
+                0 & e^{\iota \frac{\theta}{2}}
+\end{bmatrix}
+$$
+#### Hadamard Gate 
+rotiert um die Bloch Sphäre mit dem Vektor $$
