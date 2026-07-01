@@ -271,4 +271,29 @@ $$
 
 #### Hadamard Gate
 
-Rotiert um die Bloch-Sphäre mit dem Vektor $$
+- Rotiert um die Bloch-Sphäre mit dem Vektor $$
+
+
+### Quantenverschränkung
+- zwei Qubits sind verschränkt wenn der Zustand des einen nicht unabhängig vom anderen Qubit ist 
+$$
+|\Psi\rangle = \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle)
+$$ 
+- Die Korrelation ist sofort, die Messergebnisse von A korrelieren sofot mit B, wodurch sich diese sofort den gleichen Zustand teilen
+- Nach Einsteins Fernwirkungsfestellung ("spukhafte Fernwirkung") &rarr; Einstein ging damals davon aus, dass seine Relativitätstheorie durch die Annahme (ERP Paradoxon), dass die Informationsübertragung schneller als Lichtgeschwindigkeit erfolge. Heutzutage weiß man, dass die Relativitätstheorie nicht gestört wird, das es sich um keine Informationsübertragung handel
+- Auch wenn wir die Verschränkung nicht für Kommunikation nutzen können, können wir mit der Verschränkung mehr Zustände representieren als mit isolierten Qubits 
+### Bell States 
+- beschreibt die unterschiedlichen States von verschränkten Qubits. Wir haben zwei States wo jeweils die Qubits die gleich-gemessten Werte besitzen: 
+$$
+|\Psi^+\rangle = \frac{|00\rangle + |11\rangle}{\sqrt{2}}
+$$
+$$
+|\Psi^-\rangle = \frac{|00\rangle - |11\rangle}{\sqrt{2}}
+$$
+- und wir haben die zwei States, wo die Qubits beim messen beide den umgekehrten Output besitzen: 
+$$
+|\Psi^+\rangle = \frac{|01\rangle + |10\rangle}{\sqrt{2}}
+$$
+$$
+|\Psi^-\rangle = \frac{|01\rangle - |10\rangle}{\sqrt{2}}
+$$
