@@ -271,7 +271,12 @@ $$
 
 #### Hadamard Gate
 
-- Rotiert um die Bloch-Sphäre mit dem Vektor $$
+- Rotiert um die Bloch-Sphäre mit dem Vektor $\begin{bmatrix} 1 \cr 0 \cr 1 \end{bmatrix}$ und ist mit einem blauen H Block dargestellt 
+$$
+H = \begin{bmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \cr \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \end{bmatrix} = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \cr 1 & -1 \end{bmatrix}
+$$
+#### CNOT Gate
+- Um Interaktionen zwischen mehreren Qubits zu erhalten, brauchen wir andere Gates wie das `Controlled NOT Gate`
 
 
 ### Quantenverschränkung
