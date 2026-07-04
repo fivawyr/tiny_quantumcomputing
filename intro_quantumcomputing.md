@@ -277,7 +277,48 @@ H = \begin{bmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \cr \frac{1}{\sqrt{2
 $$
 #### CNOT Gate
 - Um Interaktionen zwischen mehreren Qubits zu erhalten, brauchen wir andere Gates wie das `Controlled NOT Gate`
-
+![]()
+- Flipt das Ziel-Qubit `nur` wenn bereits $|1\rangle$ ist
+$$
+CNOT|00\rangle = \begin{bmatrix} 1 & 0 & 0 & 0 \cr 0 & 1 & 0 & 0 \cr 0 & 0 & 0 & 1 \cr 0 & 0 & 1 & 0\end{bmatrix} \begin{bmatrix} 1 \cr 0 \cr 0 \cr 0 \end{bmatrix} = \begin{bmatrix} 1 \cr 0 \cr 0 \cr 0 \end{bmatrix} = |00\rangle 
+$$
+- den Unterschied sieht man, wenn man 10/11 mit CNOT verbindet und sich das flippen betrachetet 
+$$
+CNOT|11\rangle = \begin{bmatrix} 1 & 0 & 0 & 0 \cr 0 & 1 & 0 & 0 \cr 0 & 0 & 0 & 1 \cr 0 & 0 & 1 & 0\end{bmatrix} \begin{bmatrix} 0 \cr 0 \cr 0 \cr 1 \end{bmatrix} = \begin{bmatrix} 0 \cr 0 \cr 1 \cr 0 \end{bmatrix} = |10\rangle 
+$$
+&rarr; hier sieht man sehr gut, dass wir 1 als Ausgangssituation benötigen, wenn wir CNOT verwenden
+#### Toffoli Gate (CCNOT)
+- flips only if both (target & controlled qubits are 1). Wenn wir drei Qubits haben und den State 111 erreichen &rarr; wird das letzte Bit geflipped
+$$
+CCNOT|111\rangle = 
+\begin{bmatrix} 
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \cr 
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \cr 
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \cr 
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \cr 
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \cr 
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \cr 
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \cr 
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \cr 
+\end{bmatrix} \begin{bmatrix} 0 \cr 0 \cr 0 \cr 0 \cr 0 \cr 0 \cr 0 \cr 1 \end{bmatrix} \begin{bmatrix} 0 \cr 0 \cr 0 \cr 0 \cr 0 \cr 0 \cr 1 \cr 0\end{bmatrix} = |110\rangle
+$$
+#### SWAP Gate & Fredkin
+- tauscht immer dann, wenn es eine Differenz der Qubits gibt und verwedet dafür die Identitätsmatrix top left 
+![]()
+$$
+CSW AP = 
+\begin{bmatrix} 
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \cr 
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \cr 
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \cr 
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \cr 
+0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 \cr 
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \cr 
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \cr 
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \cr 
+\end{bmatrix} 
+$$
+![]()
 
 ### Quantenverschränkung
 - zwei Qubits sind verschränkt wenn der Zustand des einen nicht unabhängig vom anderen Qubit ist 
@@ -287,6 +328,7 @@ $$
 - Die Korrelation ist sofort, die Messergebnisse von A korrelieren sofot mit B, wodurch sich diese sofort den gleichen Zustand teilen
 - Nach Einsteins Fernwirkungsfestellung ("spukhafte Fernwirkung") &rarr; Einstein ging damals davon aus, dass seine Relativitätstheorie durch die Annahme (ERP Paradoxon), dass die Informationsübertragung schneller als Lichtgeschwindigkeit erfolge. Heutzutage weiß man, dass die Relativitätstheorie nicht gestört wird, das es sich um keine Informationsübertragung handel
 - Auch wenn wir die Verschränkung nicht für Kommunikation nutzen können, können wir mit der Verschränkung mehr Zustände representieren als mit isolierten Qubits 
+- 
 ### Bell States 
 - beschreibt die unterschiedlichen States von verschränkten Qubits. Wir haben zwei States wo jeweils die Qubits die gleich-gemessten Werte besitzen: 
 $$
@@ -302,3 +344,4 @@ $$
 $$
 |\Psi^-\rangle = \frac{|01\rangle - |10\rangle}{\sqrt{2}}
 $$
+- wenn man ein drittes Qubit mit zwei verbinden will, wählt man einfach 
