@@ -344,4 +344,19 @@ $$
 $$
 |\Psi^-\rangle = \frac{|01\rangle - |10\rangle}{\sqrt{2}}
 $$
-- wenn man ein drittes Qubit mit zwei verbinden will, wählt man einfach 
+- wenn man ein drittes Qubit mit zwei verbinden will, wählt man einfach eine Connection via gate und wählt als Target 1 und 0 (ist egal welchen von den beiden Qubits man wählt) und nimmt das 2. Qubit als target
+#### Quantum Concepts & Algorithms 
+- ein Quantenalgorithmus ist im Kern eine Abfolge von Matrixoperationen auf einem Zustandsvektor, wo allerdings klassichen DNA Konzepten trotzdem ein Zusammenhang liegt, ist dies erst einmal verwirrend
+- Superdence und Teleportation sind zwar Algorithmen, sind aber eher Konzepte/Protokolle zu Beurteilung (daher wählte ich den Chapter Titel auch so). Echte Quantum Computing Algorithmen sind: Grover, Shor, QAOA, HHL (&rarr; future research topics)
+#### Superdence Coding 
+- ist ein Quantum Kommunikationsprotokoll, welches Bits mit Informationen füttert und dabie weniger Qubits verbraucht 
+$$
+|\Psi^+\rangle = \frac{|00\rangle + |11\rangle}{\sqrt{2}} \rarr 2BitMessage(00) \rarr IGate \rarr \Phi^+\rangle = \frac{|00\rangle + |11\rangle}{\sqrt{2}} 
+$$
+$$
+|\Psi^+\rangle = \frac{|00\rangle + |11\rangle}{\sqrt{2}} \rarr 2BitMessage(01) \rarr ZGate \rarr \Phi^-\rangle = \frac{|00\rangle - |11\rangle}{\sqrt{2}} 
+$$
+- der Sicherheitsfaktor ist der, dass wenn jemand ein Qubit abfängt und sich den State anschaut, ist dieser unaussagekräftig über den Zustand des anderen Qubits &rarr; die erhaltene Domäne kann diese nun mit einem Gatter wieder zurück "entschlüsseln"
+> Wichtig: anders als bei einem Encrypter (bspw. mit einem XOR Gatter '^') können wir durch die Nachricht des Empfängers keine Rückschlüsse auf die ursprüngliche Nachricht schließen. Das liegt daran, dass das Quantensystem unsere Nachrich schützt (**Quantum Key Distribution**)
+#### Ressourcen 
+- folgt
