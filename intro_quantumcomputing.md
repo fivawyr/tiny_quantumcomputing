@@ -356,7 +356,72 @@ $$
 - Der Sicherheitsfaktor ist der, dass wenn jemand ein Qubit abfängt und sich den State anschaut, ist dieser unaussagekräftig über den Zustand des anderen Qubits → die erhaltene Domäne kann diese nun mit einem Gatter wieder zurück "entschlüsseln"
 > Wichtig: anders als bei einem Encrypter (bspw. mit einem XOR-Gatter `^`) können wir durch die Nachricht des Empfängers keine Rückschlüsse auf die ursprüngliche Nachricht schließen. Das liegt daran, dass das Quantensystem unsere Nachricht schützt (**Quantum Key Distribution**)
  
-#### Ressourcen
+### Ressourcen
  
-- folgt
- 
+
+#### Quantum Computing × Motorsport-CFD — Ressourcen & Einordnung
+
+**Kontext:** Möglichkeit, Quantum-Computing-Research in ein aktuelles Motorsport-CFD-Projekt als Praxisphase einzubringen (neben dem regulären Motorsport/VD-Track, der unverändert bleibt).
+
+#### Einordnung in den bestehenden Plan
+
+- Der ursprüngliche Fahrplan bleibt bestehen: Graphics/Demo-Effekt-Programmierung → numerische Integration → Mass-Spring-Damper → Game-Car-Physics → Reifenmodelle → Bicycle Model → Lap-Sim.
+- **Was sich ändert:** Fluids/CFD wird vom "irgendwann mal"-Thema zu einem aktiv mitlaufenden zweiten Strang, weil jetzt ein konkreter Praxisphasen-Anker existiert.
+- **Was gleich bleibt:** Vehicle Dynamics bleibt Kernprofil — bei echten Motorsport-Stellen (Porsche Motorsport, TGR, F1) wird selten nur eine Disziplin gesucht. Aero/CFD + Quantum wird die Erweiterung, die differenziert, nicht der Ersatz für VD.
+- Praktisch: Sobald die ersten fluid-relevanten Themen im Curriculum erreicht sind (grob nach dem Bicycle Model, parallel zum Lap-Sim), bekommt Aero/CFD mehr Gewicht als ursprünglich geplant. Das früher angedachte PIC/FLIP-Projekt passt hier als Brücke.
+- Wichtig: Klassische Grundlagen (LBM, Navier-Stokes-Diskretisierung) zuerst wirklich verstehen, bevor es in die Quantenversion geht — sonst bleibt es Buzzword-Wissen statt Substanz.
+
+#### 1. Quantum-CFD (QCFD) — Reviews als Einstieg
+
+Das Feld ist sehr jung (relevante Literatur praktisch komplett 2022–2026).
+
+- **Meng, Lu, Xiong, Zhao, Yang** — *"Advances in quantum computing for fluid dynamics"*, Advances in Mechanics, 2025. Hybride Quanten-Klassik-Algorithmen, Hamiltonian-Simulation, Hardware-Implementierung auf aktuellen Quantencomputern. Fazit: QCFD noch in den Kinderschuhen. → **Bester erster Überblick.**
+- **Amaral et al.** — *"A review of quantum machine learning and quantum-inspired applied methods to CFD"*, arXiv:2510.14099, Brazilian Journal of Physics 2025. Variational Quantum Algorithms als hybride PDE-Löser, Quantum Nonlinear Processing Units, Quantum (Physics-Informed) Neural Networks. Sehr gutes Literaturverzeichnis.
+- **CFD Vision 2030 Report** (NASA) — erkennt Quantencomputing explizit als strategisch wichtige Zukunftsrichtung für CFD an. Guter Kontext, warum das Thema überhaupt relevant für "echtes" CFD wird.
+
+**Konkrete Methodik-Paper (für später, wenn's an Implementierung geht):**
+- Williams, Gentile, Elfving, Berger, Kyriienko — *"Quantum iterative methods for solving differential equations with application to CFD"*, arXiv:2404.08605
+- Ye et al. — *"A hybrid quantum-classical framework for CFD"*, Physics of Fluids, 2024
+- Chen et al. — *"Enabling large-scale and high-precision fluid simulations on near-term quantum computers"*, arXiv:2406.06063 — Poiseuille-Strömung und akustische Wellenausbreitung auf echter supraleitender Hardware, <0.2% relativer Fehler.
+
+#### 2. Klassisches CFD-Fundament (Bücher)
+
+Voraussetzung, bevor Quantum-Methoden Sinn ergeben — die Quantum-Paper bauen alle darauf auf.
+
+- **Ferziger & Perić** — *Computational Methods for Fluid Dynamics*, Springer (passt zur bestehenden Springer-Präferenz)
+- **Anderson** — *Computational Fluid Dynamics: The Basics with Applications*, McGraw-Hill (zugänglicher Einstieg, Finite-Differenzen/-Volumen)
+- **LeVeque** — *Finite Volume Methods for Hyperbolic Problems*, Cambridge University Press
+- **Hirsch** — *Numerical Computation of Internal and External Flows* (direkterer Motorsport/Aero-Bezug: Turbomaschinen, externe Aerodynamik)
+
+Ergänzend weiterhin: **Rennwagentechnik: Aero** (Springer-Reihe) als Brücke zwischen reinem CFD und Motorsport-spezifischer Anwendung (Downforce, Bodeneffekt), aufbauend auf Grundkurs/VD-Band.
+
+#### 3. Quantum-Computing-Grundlagen
+
+- **Nielsen & Chuang** — *Quantum Computation and Quantum Information*, der Standard-Referenztext (ohne Motorsport-Bezug, aber unverzichtbar)
+- **Lapworth** — *"A hybrid quantum-classical CFD methodology with benchmark HHL solutions"*, arXiv:2206.00419 — einer der meistzitierten Einstiegspunkte für den HHL-/Quantum-Linear-Solver-Ansatz in CFD
+
+#### 4. Quantum Lattice-Boltzmann (QLBM) — vertiefender Strang
+
+**Warum LBM der natürliche Quantum-Kandidat ist:** Klassisches LBM arbeitet mit Partikelverteilungsfunktionen auf einem diskreten Gitter statt direkt mit Navier-Stokes — strukturelle Nähe zu Quantenzuständen (diskrete Zustände, lokale Kollisionsregeln).
+
+**Mathematische Brücke (klassisch, keine Quantenmechanik):**
+- Itani, Succi et al. — *"Analysis of Carleman linearization of lattice Boltzmann"*, Fluids, 2022. Carleman-Linearisierung macht den nichtlinearen LBM-Kollisionsoperator (näherungsweise) linear und damit quantentauglich.
+
+**Quantum-LBM-Serie, chronologisch:**
+1. **Itani, Sreenivasan, Succi** — *"Quantum Carleman Lattice Boltzmann Simulation of Fluids"*, arXiv:2301.05762 (2023). Pädagogische Einführung, bester erster Zugang.
+2. **Succi, Itani, Sreenivasan, Steijl** — *"Quantum computing for fluids: Where do we stand?"*, Europhys. Lett., 2023. Standortbestimmung.
+3. **Wang, Meng, Zhao, Yang** — *"Quantum lattice Boltzmann method for simulating nonlinear fluid dynamics"*, npj Quantum Information, arXiv:2502.16568 (Feb 2025). Aktueller Stand der Kunst: node-level Ensemble-Beschreibung eines Lattice Gas, validiert an Vortex-Pair-Merging und abklingender Turbulenz auf bis zu 16.8 Mio. Gitterpunkten. **Wichtigstes Einzelpaper.**
+4. Zum Vergleich (Hardware-Seite): Meng et al. — *"Simulating unsteady flows on a superconducting quantum processor"*, Commun. Phys., 2024.
+
+**Klassisches LBM als Grundlage (falls LBM selbst noch neu ist):**
+- Dapena-García & Pérez-Muñuzuri — *"Exploring the Applicability of the Lattice-Boltzmann Method for Two-Dimensional Turbulence Simulation"*, arXiv:2509.23820. Kompakter Einstieg, von-Karman-Wirbelstraßen.
+
+**Für später:** Die Succi-Gruppe (Rom/Harvard) ist der Dreh- und Angelpunkt des Subfelds — fast jedes Paper zitiert oder baut auf ihr auf.
+
+#### Vorgeschlagene Reihenfolge
+
+1. Graphics/Numerik-Grundlagen wie geplant weiterlaufen lassen
+2. Parallel: Ferziger/Perić oder Anderson für klassisches CFD-Fundament
+3. Sobald Navier-Stokes-Diskretisierung sitzt: die drei Reviews (Meng et al. zuerst, dann Amaral et al.)
+4. Danach gezielt HHL/Variational Quantum Linear Solver Originalarbeiten, je nach konkreter Methodik im Projekt
+5. Vertiefung: Quantum-LBM-Serie (Itani 2023 → Succi 2023 → Wang et al. 2025)
